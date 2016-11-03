@@ -2,12 +2,12 @@
 
 echo "Installing Riak"
 if [ ! -f Downloads/config_file.repo ]; then
-        curl -O http://s3.amazonaws.com/downloads.basho.com/riak_ts/1.4/1.4.0/rhel/7/riak-ts-1.4.0-1.el7.centos.x86_64.rpm
+        curl -O http://s3.amazonaws.com/downloads.basho.com/riak_ts/1.4/1.4.0/rhel/6/riak-ts-1.4.0-1.el6.x86_64.rpm
 
 fi
 cp Downloads/config_file.repo /etc/yum.repos.d/basho_riak.repo
 
-yum -q -y install riak-ts-1.4.0-1.el7.centos.x86_64.rpm
+yum -q -y install riak-ts-1.4.0-1.el6.x86_64.rpm
 
 echo "Configuring Riak on node $(hostname)"
 echo "nodename = riak@$(hostname)" >> /etc/riak/riak.conf
@@ -28,6 +28,3 @@ chkconfig riak on
 service riak start
 riak-admin wait-for-service riak_kv &> /dev/null
 
-echo "Installing Helper Scripts"
-ln -s /vagrant/applications/healbrain.sh /usr/local/bin
-ln -s /vagrant/applications/splitbrain.sh /usr/local/bin

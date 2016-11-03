@@ -1,5 +1,8 @@
 #! /bin/sh
 
+sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions \
+/usr/lib/VBoxGuestAdditions
+
 echo "Installing Packages..."
 sed -i -e 's/keepcache=0/keepcache=1/g' -e 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.conf
 yum -q -y install epel-release
@@ -9,12 +12,12 @@ yum -q -y install vim
 echo "Setting up hosts file"
 echo '
 # Added by Vagrant Provisioning Script
-10.10.10.10 client.riak.local client
-10.10.10.11 node1.riak.local node1
-10.10.10.12 node2.riak.local node2
-10.10.10.13 node3.riak.local node3
-10.10.10.14 node4.riak.local node4
-10.10.10.15 node5.riak.local node5
+10.10.10.40 client.riak.local client
+10.10.10.41 tsnode1.riak.local tsnode1
+10.10.10.42 tsnode2.riak.local tsnode2
+10.10.10.43 tsnode3.riak.local tsnode3
+10.10.10.44 tsnode4.riak.local tsnode4
+10.10.10.45 tsnode5.riak.local tsnode5
 ' >> /etc/hosts
 
 echo "Setting up SSH keys"
