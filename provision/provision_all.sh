@@ -1,8 +1,5 @@
 #! /bin/sh
 
-sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions \
-/usr/lib/VBoxGuestAdditions
-
 echo "Installing Packages..."
 sed -i -e 's/keepcache=0/keepcache=1/g' -e 's/gpgcheck=1/gpgcheck=0/g' /etc/yum.conf
 yum -q -y install epel-release

@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Installing Riak"
-if [ ! -f Downloads/config_file.repo ]; then
-        curl -O http://s3.amazonaws.com/downloads.basho.com/riak_ts/1.4/1.4.0/rhel/6/riak-ts-1.4.0-1.el6.x86_64.rpm
 
-fi
-cp Downloads/config_file.repo /etc/yum.repos.d/basho_riak.repo
+curl -LO http://s3.amazonaws.com/downloads.basho.com/riak_ts/1.4/1.4.0/rhel/6/riak-ts-1.4.0-1.el6.x86_64.rpm
 
 yum -q -y install riak-ts-1.4.0-1.el6.x86_64.rpm
 
